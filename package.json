@@ -24,7 +24,7 @@
     "github": "0.2.3",
     "github-username": "1.1.1",
     "growly": "1.1.1",
-    "gulp": "3.8.10",
+    "gulp": "3.8.11",
     "gulp-autoprefixer": "2.0.0",
     "gulp-bump": "0.1.11",
     "gulp-concat": "2.4.2",
@@ -97,7 +97,10 @@
     "angular-animate": "./bower_components/angular-animate/angular-animate.js",
     "angular-sanitize": "./bower_components/angular-sanitize/angular-sanitize.js",
     "famous": "./bower_components/famous/dist/famous-global.js",
-    "famous-angular": "./bower_components/famous-angular/dist/famous-angular.js"
+    "famous-angular": "./bower_components/famous-angular/dist/famous-angular.js",
+    "ng-resize": "./bower_components/ng-resize/ngresize.min.js",
+    "spark-scroll": "./bower_components/spark-scroll/src/spark-scroll.js",
+    "lodash": "./bower_components/lodash/dist/lodash.min.js"
   },
   "browserify": {
     "transform": [
@@ -135,6 +138,12 @@
         "angular-animate",
         "angular-sanitize",
         "angular-ui-router"
+      ]
+    },
+    "spark-scroll": {
+      "depends": [
+        "angular",
+        "lodash"
       ]
     }
   }
