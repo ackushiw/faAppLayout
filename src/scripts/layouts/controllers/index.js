@@ -2,7 +2,6 @@
 
 module.exports = function(app) {
     // inject:start
-    require('./menuButton')(app);
-    require('./responsive')(app);
+    require('./main')(app);
     // inject:end
 };
