@@ -1,22 +1,22 @@
 <fa-app class="full-screen">
   <!-- Nav section Layout -->
   <fa-modifier class="nav-view" fa-translate="responsiveCtrl.topnavTranslate.get()" fa-size="responsiveCtrl.topnavSize.get()" fa-align="responsiveCtrl.topnavAlign.get()">
-    <fa-view>
-      <div ui-view="nav" class="full-height full-width">
+    <div>
+      <div ui-view="topnav" class="full-height full-width">
         <fa-surface fa-background-color="'grey'">
 
         </fa-surface>
 
       </div>
 
-    </fa-view>
+    </div>
   </fa-modifier>
 
   <fa-modifier class="view" fa-translate="responsiveCtrl.sidenavTranslate.get()" fa-size="responsiveCtrl.sidenavSize.get()">
-    <fa-view>
+    <div>
       <div ui-view="sidenav">
 
-        <fa-surface fa-background-color="'green'" class="full-height">
+        <!-- <fa-surface fa-background-color="'green'" class="full-height">
           <div class="md-whiteframe-z2 full-height" md-swipe-left="responsiveCtrl.sidenavClose($event)" md-swipe-right="responsiveCtrl.expandSidenav($event)">
             <md-toolbar>
               <div class="md-toolbar-tools">
@@ -40,44 +40,44 @@
               <div>
                 This is directive : responsive
                 <h1>height: {{responsiveCtrl.height}}</h1>
+
                 <h1>width: {{responsiveCtrl.width}}</h1>
+
               </div>
             </md-content>
           </div>
 
-        </fa-surface>
+        </fa-surface> -->
       </div>
 
-    </fa-view>
+    </div>
   </fa-modifier>
 
   <fa-modifier class="main-content" fa-translate="responsiveCtrl.mainContentTranslate.get()" fa-size="responsiveCtrl.mainContentSize.get()" fa-align="responsiveCtrl.mainContentAlign.get()">
-    <fa-view>
-      <fa-surface fa-background-color="'slate'"></fa-surface>
-    </fa-view>
+    <div ui-view="main">
+      <fa-surface fa-background-color="'gold'"></fa-surface>
+    </div>
   </fa-modifier>
 
   <fa-modifier class="main-content" fa-translate="responsiveCtrl.contentViewTranslate.get()" fa-size="responsiveCtrl.contentViewSize.get()" fa-align="responsiveCtrl.contentViewAlign.get()">
-    <fa-view>
+    <div ui-view="expanded">
       <fa-surface fa-background-color="'blue'">
-        <div menu-button translate="[0,0,350]" duration="5000">
 
-        </div>
       </fa-surface>
-    </fa-view>
+    </div>
   </fa-modifier>
 
   <fa-modifier class="view" fa-align="responsiveCtrl.actionOptions.align" fa-translate="responsiveCtrl.actionOptions.translate" fa-size="responsiveCtrl.actionOptions.size">
-    <fa-view>
+    <div>
       <fa-surface fa-background-color="'#6c71c4'" fa-opacity="responsiveCtrl.opacityTest"></fa-surface>
-    </fa-view>
+    </div>
   </fa-modifier>
   <fa-modifier class="background view">
-    <fa-view>
+    <div>
       <fa-surface fa-background-color="'#268bd2'" fa-opacity="responsiveCtrl.opacityTest">
         <h1>height: {{responsiveCtrl.height}}</h1>
         <h1>width: {{responsiveCtrl.width}}</h1>
       </fa-surface>
-    </fa-view>
+    </div>
   </fa-modifier>
 </fa-app>

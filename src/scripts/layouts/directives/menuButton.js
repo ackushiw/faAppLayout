@@ -12,141 +12,189 @@ module.exports = function(app) {
 
     var menuButtonCtrl = this;
 
-    menuButtonCtrl.active = false;
-    menuButtonCtrl.animationDuration = menuButtonCtrl.duration || 450;
+    menuButtonCtrl.active = menuButtonCtrl.state || false;
+    console.log(menuButtonCtrl.state);
+    menuButtonCtrl.iconHeight = menuButtonCtrl.height || '24px';
+    menuButtonCtrl.iconWidth = menuButtonCtrl.width || '24px';
+    menuButtonCtrl.iconTranslate = [menuButtonCtrl.translateX || 0, menuButtonCtrl.translateY || 0, menuButtonCtrl.translateZ || 1];
+    menuButtonCtrl.animationDuration = menuButtonCtrl.speed || 450;
+    console.log(menuButtonCtrl.iconTranslate);
+    menuButtonCtrl.iconColor = menuButtonCtrl.color || 'white';
+    menuButtonCtrl.iconScale = menuButtonCtrl.scale || [1];
     menuButtonCtrl.container = {
-      translate: [0, 0, 0],
+      translate: [0, 0, 1],
       scale: [0],
       rotateZ: new Transitionable(0),
       rotateZTimeline: $timeline([
-        [0, [0], Easing.outQuad],
+        [0, [0], Easing.inOutExpo],
         [1, Math.PI]
       ])
     };
 
-    menuButtonCtrl.backgroundColor = {
-      color: new Transitionable(0),
-      colorTimeline: $timeline([
-        [0, ['black'], Easing.outQuad],
-        [1, ['grey']]
-      ])
-    };
+    // menuButtonCtrl.backgroundColor = {
+    //   color: new Transitionable(0),
+    //   colorTimeline: $timeline([
+    //     [0, 'grey', Easing.inOutExpo],
+    //     [1, 'grey']
+    //   ])
+    // };
 
     menuButtonCtrl.topLine = {
       translate: new Transitionable(0),
       translateTimeline: $timeline([
-        [0, [3, 6, 0], Easing.outQuad],
-        [1, [21, -4, 0]]
+        [0, [3, 6, 5], Easing.inOutExpo],
+        [1, [22.5, -4.1, 5]]
       ]),
       size: new Transitionable(0),
       sizeTimeline: $timeline([
-        [0, [18, 2], Easing.outQuad],
-        [1, [10, 2]]
+        [0, [18, 2], Easing.inOutExpo],
+        [1, [9.6, 2]]
       ]),
       align: new Transitionable(0),
       alignTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
-        [1, [.5, .5]]
+        [0, [0, 0], Easing.inOutExpo],
+        [1, [0, 0]]
       ]),
       origin: new Transitionable(0),
       originTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
-        [1, [.65, 1]]
+        [0, [0, 0], Easing.inOutExpo],
+        [1, [1, 1]]
       ]),
       rotateZ: new Transitionable(0),
       rotateZTimeline: $timeline([
-        [0, [0], Easing.outQuad],
+        [0, [0], Easing.inOutExpo],
         [1, 0.25 * Math.PI]
       ])
     };
     menuButtonCtrl.midLine = {
       translate: new Transitionable(0),
       translateTimeline: $timeline([
-        [0, [3, 11, 0], Easing.outQuad],
-        [1, [5, 11, 0]]
+        [0, [3, 11, 5], Easing.inOutExpo],
+        [1, [5, 11, 5]]
       ]),
       size: new Transitionable(0),
       sizeTimeline: $timeline([
-        [0, [18, 2], Easing.outQuad],
+        [0, [18, 2], Easing.inOutExpo],
         [1, [14, 2]]
       ]),
       align: new Transitionable(0),
       alignTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
+        [0, [0, 0], Easing.inOutExpo],
         [1, [0, 0]]
       ]),
       origin: new Transitionable(0),
       originTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
+        [0, [0, 0], Easing.inOutExpo],
         [1, [0, 0]]
       ]),
       rotateZ: new Transitionable(0),
       rotateZTimeline: $timeline([
-        [0, [0], Easing.outQuad],
+        [0, [0], Easing.inOutExpo],
         [1, [0]]
       ])
     };
     menuButtonCtrl.bottomLine = {
       translate: new Transitionable(0),
       translateTimeline: $timeline([
-        [0, [3, 16, 0], Easing.outQuad],
-        [1, [4, 19, 0]]
+        [0, [3, 16, 5], Easing.inOutExpo],
+        [1, [6, 19, 5]]
       ]),
       size: new Transitionable(0),
       sizeTimeline: $timeline([
-        [0, [18, 2], Easing.outQuad],
+        [0, [18, 2], Easing.inOutExpo],
         [1, [10, 2]]
       ]),
       align: new Transitionable(0),
       alignTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
-        [1, [0.5, 0.5]]
+        [0, [0, 0], Easing.inOutExpo],
+        [1, [0.0, 0.0]]
       ]),
       origin: new Transitionable(0),
       originTimeline: $timeline([
-        [0, [0, 0], Easing.outQuad],
-        [1, [0.80, -1.8]]
+        [0, [0, 0], Easing.inOutExpo],
+        [1, [1.0, -1]]
       ]),
       rotateZ: new Transitionable(0),
       rotateZTimeline: $timeline([
-        [0, [0], Easing.outQuad],
+        [0, [0], Easing.inOutExpo],
         [1, -0.25 * Math.PI]
       ])
     };
-    //container
-    menuButtonCtrl.container.rotateZ.set(0);
-    //color
-    menuButtonCtrl.backgroundColor.color.set(0)
 
-    //topline
-    menuButtonCtrl.topLine.translate.set(0);
-    menuButtonCtrl.topLine.size.set(0);
-    menuButtonCtrl.topLine.align.set(0);
-    menuButtonCtrl.topLine.origin.set(0);
-    menuButtonCtrl.topLine.rotateZ.set(0);
-    //midLine
-    menuButtonCtrl.midLine.translate.set(0);
-    menuButtonCtrl.midLine.size.set(0);
-    menuButtonCtrl.midLine.align.set(0);
-    menuButtonCtrl.midLine.origin.set(0);
-    menuButtonCtrl.midLine.rotateZ.set(0);
-    //bottomLine
-    menuButtonCtrl.bottomLine.translate.set(0);
-    menuButtonCtrl.bottomLine.size.set(0);
-    menuButtonCtrl.bottomLine.align.set(0);
-    menuButtonCtrl.bottomLine.origin.set(0);
-    menuButtonCtrl.bottomLine.rotateZ.set(0);
+    menuButtonCtrl.updateState = function() {
 
-    menuButtonCtrl.test = function() {
+      if(menuButtonCtrl.state) {
+        //container
+        menuButtonCtrl.container.rotateZ.set(1);
+        //color
+        //menuButtonCtrl.backgroundColor.color.set(0)
+
+        //topline
+        menuButtonCtrl.topLine.translate.set(1);
+        menuButtonCtrl.topLine.size.set(1);
+        menuButtonCtrl.topLine.align.set(1);
+        menuButtonCtrl.topLine.origin.set(1);
+        menuButtonCtrl.topLine.rotateZ.set(1);
+        //midLine
+        menuButtonCtrl.midLine.translate.set(1);
+        menuButtonCtrl.midLine.size.set(1);
+        menuButtonCtrl.midLine.align.set(1);
+        menuButtonCtrl.midLine.origin.set(1);
+        menuButtonCtrl.midLine.rotateZ.set(1);
+        //bottomLine
+        menuButtonCtrl.bottomLine.translate.set(1);
+        menuButtonCtrl.bottomLine.size.set(1);
+        menuButtonCtrl.bottomLine.align.set(1);
+        menuButtonCtrl.bottomLine.origin.set(1);
+        menuButtonCtrl.bottomLine.rotateZ.set(1);
+
+      } else {
+        //container
+        menuButtonCtrl.container.rotateZ.set(0);
+        //color
+        //menuButtonCtrl.backgroundColor.color.set(0)
+
+        //topline
+        menuButtonCtrl.topLine.translate.set(0);
+        menuButtonCtrl.topLine.size.set(0);
+        menuButtonCtrl.topLine.align.set(0);
+        menuButtonCtrl.topLine.origin.set(0);
+        menuButtonCtrl.topLine.rotateZ.set(0);
+        //midLine
+        menuButtonCtrl.midLine.translate.set(0);
+        menuButtonCtrl.midLine.size.set(0);
+        menuButtonCtrl.midLine.align.set(0);
+        menuButtonCtrl.midLine.origin.set(0);
+        menuButtonCtrl.midLine.rotateZ.set(0);
+        //bottomLine
+        menuButtonCtrl.bottomLine.translate.set(0);
+        menuButtonCtrl.bottomLine.size.set(0);
+        menuButtonCtrl.bottomLine.align.set(0);
+        menuButtonCtrl.bottomLine.origin.set(0);
+        menuButtonCtrl.bottomLine.rotateZ.set(0);
+      }
+    }
+
+    //action
+    function trigger(value) {
+
+      menuButtonCtrl.state = !value;
+      menuButtonCtrl.action({
+        state: value
+      });
+      console.log('button state', menuButtonCtrl.state);
+    }
+
+    menuButtonCtrl.toggle = function() {
       if(menuButtonCtrl.active) {
         //container
         menuButtonCtrl.container.rotateZ.set(0, {
           duration: menuButtonCtrl.animationDuration
         });
         //color
-        menuButtonCtrl.backgroundColor.color.set(0, {
-          duration: menuButtonCtrl.animationDuration
-        })
+        // menuButtonCtrl.backgroundColor.color.set(0, {
+        //   duration: menuButtonCtrl.animationDuration
+        // })
 
         //topline
         menuButtonCtrl.topLine.translate.set(0, {
@@ -198,15 +246,16 @@ module.exports = function(app) {
         });
 
         menuButtonCtrl.active = false;
+        trigger(false);
       } else {
         //container
         menuButtonCtrl.container.rotateZ.set(1, {
           duration: menuButtonCtrl.animationDuration
         });
-        //color
-        menuButtonCtrl.backgroundColor.color.set(1, {
-          duration: menuButtonCtrl.animationDuration
-        });
+        // //color
+        // menuButtonCtrl.backgroundColor.color.set(1, {
+        //   duration: menuButtonCtrl.animationDuration
+        // });
         //topline
         menuButtonCtrl.topLine.translate.set(1, {
           duration: menuButtonCtrl.animationDuration
@@ -256,9 +305,11 @@ module.exports = function(app) {
           duration: menuButtonCtrl.animationDuration
         });
         menuButtonCtrl.active = true;
+        trigger(true);
 
       }
     };
+    menuButtonCtrl.updateState();
 
     menuButtonCtrl.directivename = directivename;
   };
@@ -272,11 +323,16 @@ module.exports = function(app) {
     return {
       restrict: 'AE',
       scope: {
-        title: '@', // '@' reads attribute value, '=' provides 2-way binding, '&" works with functions
-        color1: '@',
-        color2: '@',
-        translate: '@',
-        duration: '@'
+        //title: '@', // '@' reads attribute value, '=' provides 2-way binding, '&" works with functions
+        color: '@',
+        speed: '@',
+        scale: '@',
+        translateX: '@',
+        translateY: '@',
+        translateZ: '@',
+        duration: '@',
+        action: '&',
+        state: '='
       },
       controller: controller,
       controllerAs: 'menuButtonCtrl',
@@ -288,7 +344,10 @@ module.exports = function(app) {
 
           },
           post: function(scope, element, attrs) {
-
+            // scope.$watch('menuButtonCtrl.state', function(newValue, oldValue) {
+            //   console.log('watcher', newValue);
+            //   scope.menuButtonCtrl.updateState(newValue);
+            // });
           }
         };
       }

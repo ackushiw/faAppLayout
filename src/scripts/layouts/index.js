@@ -25,6 +25,22 @@ module.exports = function(namespace) {
         template: require('./views/home.html'),
         controller: fullname + '.main',
         controllerAs: 'mainCtrl'
+      }).state('home.app', {
+        url: 'app',
+        views: {
+          'sidenav': {
+            template: require('./views/sidenav.html')
+          },
+          'topnav': {
+            template: require('./views/topnav.html')
+          },
+          'main': {
+            template: require('./views/main.html')
+          },
+          'expanded': {
+            template: require('./views/expanded.html')
+          }
+        }
       });
     }
   ]);

@@ -1,62 +1,29 @@
-<div fa-app class="full-screen">
+<!-- <div fa-app ng-style="height:{{menuButtonCtrl.iconHeight}};width:{{menuButtonCtrl.iconWidth}};"> -->
 
-  <fa-modifier fa-size="[24,24]" fa-translate="[8,8,50]" fa-scale="[10]">
+<fa-modifier fa-size="[24,24] " fa-translate="menuButtonCtrl.iconTranslate" fa-align="[0,0]">
+  <fa-view>
 
-    <fa-surface fa-background-color="'white'" ng-click="menuButtonCtrl.test()">{{menuButtonCtrl.active}}</fa-surface>
-    <fa-modifier fa-size="[18,2]" fa-translate="[3,6,0]" fa-origin="[0,0] " fa-align="[0.5,0.5]">
-      <fa-surface fa-background-color="'black'">
-
-      </fa-surface>
-    </fa-modifier>
-    <fa-modifier fa-size="[18,2]" fa-translate="[3,11,0]" fa-origin="[0,0] " fa-align="[0.5,0.5]">
-      <fa-surface fa-background-color="'black'"></fa-surface>
-    </fa-modifier>
-    <fa-modifier fa-size="[18,2]" fa-translate="[3,16,0]" fa-origin="[0,0] " fa-align="[0.5,0.5]">
-      <fa-surface fa-background-color="'black'"></fa-surface>
-    </fa-modifier>
-
-  </fa-modifier>
-  <fa-modifier fa-translate="[400,500,200] ">
-    <fa-modifier fa-scale="[3]">
-      <fa-modifier fa-size="[24,24]" fa-origin="[0.5,0.5]" fa-align="[0.5,0.5]" fa-rotate-z="0">
-        <fa-modifier fa-origin="[0.5,0.5] " fa-align="[0.5,0.5] ">
-          <fa-surface fa-size="[undefined,undefined]" fa-background-color=" 'white' " ng-click="menuButtonCtrl.test() "></fa-surface>
-        </fa-modifier>
-
-        <fa-modifier fa-size="[10,2] " fa-translate="[0,0,0] " fa-rotate-z="0.785 " fa-origin="[0,0] " fa-align="[0.5,0.5] ">
-          <fa-surface fa-background-color=" 'black' ">
-
-          </fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[14,2] " fa-translate="[0,0,0] " fa-origin="[0.5,0.5] " fa-align="[0.5,0.5] ">
-          <fa-surface fa-background-color=" 'black' "></fa-surface>
-        </fa-modifier>
-        <fa-modifier fa-size="[10,2] " fa-translate="[0,0,0] " fa-rotate-z="5.5 " fa-origin="[0.5,0.5] " fa-align="[0.5,0.5] ">
-          <fa-surface fa-background-color=" 'black' "></fa-surface>
-        </fa-modifier>
-
+    <fa-modifier fa-size="[24,24]" fa-scale=" menuButtonCtrl.iconScale " fa-origin="[0.5,0.5] " fa-align="[0.5,0.5] " fa-rotate-z="menuButtonCtrl.container.rotateZTimeline(menuButtonCtrl.container.rotateZ.get()) ">
+      <fa-surface ng-if="menuButtonCtrl.whiteBackground " fa-background-color=" 'white' "></fa-surface>
+      <fa-modifier fa-translate="[0,0,15] ">
+        <fa-surface ng-click="menuButtonCtrl.toggle() "></fa-surface>
       </fa-modifier>
-    </fa-modifier>
-  </fa-modifier>
-  <fa-modifier fa-translate="[700,500,100] ">
-
-    <fa-modifier fa-size="[24,24] " fa-scale="[10] " fa-origin="[0.5,0.5] " fa-align="[0.5,0.5] " fa-rotate-z="menuButtonCtrl.container.rotateZTimeline(menuButtonCtrl.container.rotateZ.get()) ">
-      <fa-surface fa-background-color=" 'white' " ng-click="menuButtonCtrl.test() "></fa-surface>
 
       <fa-modifier fa-size="menuButtonCtrl.topLine.sizeTimeline(menuButtonCtrl.topLine.size.get()) " fa-translate="menuButtonCtrl.topLine.translateTimeline(menuButtonCtrl.topLine.translate.get()) " fa-align="menuButtonCtrl.topLine.alignTimeline(menuButtonCtrl.topLine.align.get()) " fa-origin="menuButtonCtrl.topLine.originTimeline(menuButtonCtrl.topLine.origin.get()) " fa-rotate-z="menuButtonCtrl.topLine.rotateZTimeline(menuButtonCtrl.topLine.rotateZ.get()) ">
-        <fa-surface fa-background-color="menuButtonCtrl.backgroundColor.colorTimeline(menuButtonCtrl.backgroundColor.color.get()) ">
+        <fa-surface fa-background-color="menuButtonCtrl.iconColor ">
 
         </fa-surface>
       </fa-modifier>
 
       <fa-modifier fa-size="menuButtonCtrl.midLine.sizeTimeline(menuButtonCtrl.midLine.size.get()) " fa-translate="menuButtonCtrl.midLine.translateTimeline(menuButtonCtrl.midLine.translate.get()) " fa-align="menuButtonCtrl.midLine.alignTimeline(menuButtonCtrl.midLine.align.get()) " fa-origin="menuButtonCtrl.midLine.originTimeline(menuButtonCtrl.midLine.origin.get()) ">
-        <fa-surface fa-background-color="menuButtonCtrl.backgroundColor.colorTimeline(menuButtonCtrl.backgroundColor.color.get()) "></fa-surface>
+        <fa-surface fa-background-color="menuButtonCtrl.iconColor "></fa-surface>
       </fa-modifier>
 
       <fa-modifier fa-size="menuButtonCtrl.bottomLine.sizeTimeline(menuButtonCtrl.bottomLine.size.get()) " fa-translate="menuButtonCtrl.bottomLine.translateTimeline(menuButtonCtrl.bottomLine.translate.get()) " fa-align="menuButtonCtrl.bottomLine.alignTimeline(menuButtonCtrl.bottomLine.align.get()) " fa-origin="menuButtonCtrl.bottomLine.originTimeline(menuButtonCtrl.bottomLine.origin.get()) " fa-rotate-z="menuButtonCtrl.bottomLine.rotateZTimeline(menuButtonCtrl.bottomLine.rotateZ.get()) ">
-        <fa-surface fa-background-color="menuButtonCtrl.backgroundColor.colorTimeline(menuButtonCtrl.backgroundColor.color.get()) "></fa-surface>
+        <fa-surface fa-background-color="menuButtonCtrl.iconColor "></fa-surface>
       </fa-modifier>
 
     </fa-modifier>
-  </fa-modifier>
-</div>
+  </fa-view>
+</fa-modifier>
+<!-- </div> -->
